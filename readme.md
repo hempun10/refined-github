@@ -57,6 +57,8 @@ This fork keeps the upstream extension and adds independent options. See [instal
 
 - [](# "copy-pr-url") [Copies the canonical pull request URL from the PR header, including on files and commits tabs.](https://github.com/user-attachments/assets/cb7b42dd-4ac5-425c-a283-818760294ded)
 
+- [](# "pr-bulk-actions") [Adds PR selection with a floating toolbar to copy URLs, open selected PRs, and clear the selection.](https://github.com/user-attachments/assets/6d289985-1483-4a91-bed1-61a4a46b69da)
+
 ## Highlights 🔥
 
 <table>

@@ -113,6 +113,7 @@
 	"pinned-issues-update-time",
 	"pr-base-commit",
 	"pr-branch-auto-delete",
+	"pr-bulk-actions",
 	"pr-commit-lines-changed",
 	"pr-filters",
 	"pr-first-commit-title",

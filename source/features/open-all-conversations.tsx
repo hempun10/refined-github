@@ -24,6 +24,7 @@ function onButtonClick(): void {
 			// TODO [2027-01-01]: Drop if PR lists have turned React
 			'.js-issue-row.selected',
 			'[aria-label^="Selected"]',
+			'.rgh-pr-selected', // Selection added by pr-bulk-actions
 		], link)
 	);
 

@@ -677,6 +677,12 @@
 		"screenshot": "https://user-images.githubusercontent.com/1402241/177067141-eabc7494-38a2-45b5-aef9-ac33cc0da370.png"
 	},
 	{
+		"id": "pr-bulk-actions",
+		"description": "Adds PR selection with a floating toolbar to copy URLs, open selected PRs, and clear the selection.",
+		"css": true,
+		"screenshot": "https://github.com/user-attachments/assets/6d289985-1483-4a91-bed1-61a4a46b69da"
+	},
+	{
 		"id": "pr-commit-lines-changed",
 		"description": "Adds diff stats on PR commits.",
 		"screenshot": "https://github.com/user-attachments/assets/eb0f5e6e-9870-4daf-8c00-f1f23f61ef0f"
