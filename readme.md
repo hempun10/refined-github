@@ -55,6 +55,8 @@ This fork keeps the upstream extension and adds independent options. See [instal
 
 - [](# "image-lightbox") [Opens linked content images in a dismissible preview without leaving the page.](https://github.com/user-attachments/assets/530b05bc-55d1-4de6-9a03-72f83283dc59)
 
+- [](# "copy-pr-url") [Copies the canonical pull request URL from the PR header, including on files and commits tabs.](https://github.com/user-attachments/assets/cb7b42dd-4ac5-425c-a283-818760294ded)
+
 ## Highlights 🔥
 
 <table>

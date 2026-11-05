@@ -202,6 +202,11 @@
 		"screenshot": "https://github.com/user-attachments/assets/2237c549-5fc8-405c-8a72-7da518d23b0e"
 	},
 	{
+		"id": "copy-pr-url",
+		"description": "Copies the canonical pull request URL from the PR header, including on files and commits tabs.",
+		"screenshot": "https://github.com/user-attachments/assets/cb7b42dd-4ac5-425c-a283-818760294ded"
+	},
+	{
 		"id": "create-release-shortcut",
 		"description": "Adds a keyboard shortcut to create a new release while on the Releases page: <kbd>c</kbd>.",
 		"screenshot": null

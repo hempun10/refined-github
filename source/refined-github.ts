@@ -224,3 +224,4 @@ import './features/dim-viewed-files.js';
 import './features/absolute-time.js';
 import './features/fork-you.js';
 import './features/image-lightbox.js';
+import './features/copy-pr-url.js';

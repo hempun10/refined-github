@@ -33,6 +33,7 @@
 	"conversation-links-on-repo-lists",
 	"convert-release-to-draft",
 	"copy-on-y",
+	"copy-pr-url",
 	"create-release-shortcut",
 	"cross-deleted-pr-branches",
 	"deep-reblame",
