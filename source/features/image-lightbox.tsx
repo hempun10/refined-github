@@ -1,5 +1,6 @@
 import './image-lightbox.css';
 
+import {mergeSignals, signalFromEvent} from 'abort-utils';
 import delegate, {type DelegateEvent} from 'delegate-it';
 import React from 'dom-chef';
 import {isAlteredClick} from 'filter-altered-clicks';
@@ -69,6 +70,7 @@ function openImage(event: DelegateEvent<MouseEvent, HTMLAnchorElement>): void {
 }
 
 function init(signal: AbortSignal): void {
+	signal = mergeSignals(signal, signalFromEvent(document, 'soft-nav:start', {signal}));
 	delegate('.markdown-body a:has(img)', 'click', openImage, {signal});
 	signal.addEventListener('abort', () => {
 		const dialog = $optional('dialog.rgh-image-lightbox');

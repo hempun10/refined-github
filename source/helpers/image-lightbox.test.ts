@@ -48,6 +48,13 @@ test('opens a linked content image and removes the dialog on navigation', () => 
 	expect(elementExists('dialog')).toBe(false);
 });
 
+test('closes the preview before React navigation', () => {
+	imageLink().dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true}));
+	expect(elementExists('dialog[open]')).toBe(true);
+	document.dispatchEvent(new Event('soft-nav:start'));
+	expect(elementExists('dialog')).toBe(false);
+});
+
 test.each([
 	['https://example.com/unrelated', 300, false],
 	['https://example.com/image.png', 32, false],

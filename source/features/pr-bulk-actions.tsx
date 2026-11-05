@@ -4,7 +4,7 @@ import {mergeSignals, signalFromEvent} from 'abort-utils';
 import delegate from 'delegate-it';
 import React from 'dom-chef';
 import * as pageDetect from 'github-url-detection';
-import {$optional, closestElement, elementExists} from 'select-dom';
+import {$$optional, $optional, closestElement, elementExists} from 'select-dom';
 
 import features from '../feature-manager.js';
 import openTabs from '../helpers/open-tabs.js';
@@ -111,14 +111,15 @@ function init(signal: AbortSignal): void {
 		selected[0]?.focus();
 	};
 
-	observe(
-		[
-			'li[class*="listItem"] h3 a[href*="/pull/"]', // React repository and global lists
-			'.js-issue-row a.js-navigation-open[href*="/pull/"]', // Legacy lists
-		],
-		addCheckbox,
-		{signal},
-	);
+	const links = [
+		'li[class*="listItem"] h3 a[href*="/pull/"]', // React repository and global lists
+		'.js-issue-row a.js-navigation-open[href*="/pull/"]', // Legacy lists
+	] as const;
+	for (const link of $$optional(links)) {
+		addCheckbox(link);
+	}
+
+	observe(links, addCheckbox, {signal});
 	delegate('main input[type="checkbox"]', 'change', update, {signal});
 	delegate('.rgh-pr-copy', 'click', copy, {signal});
 	delegate('.rgh-pr-open', 'click', open, {signal});

@@ -1,3 +1,4 @@
+import {mergeSignals, signalFromEvent} from 'abort-utils';
 import delegate, {type DelegateEvent} from 'delegate-it';
 import React from 'dom-chef';
 import * as pageDetect from 'github-url-detection';
@@ -51,14 +52,16 @@ async function copyUrl({delegateTarget: button}: DelegateEvent<MouseEvent, HTMLB
 }
 
 function init(signal: AbortSignal): void {
-	observe(
-		[
-			'[data-component="PH_Actions"]', // React PR header
-			'.gh-header-actions', // Legacy files and commits headers
-		],
-		addCopyButton,
-		{signal},
-	);
+	signal = mergeSignals(signal, signalFromEvent(document, 'soft-nav:start', {signal}));
+	const headers = [
+		'[data-component="PH_Actions"]', // React PR header
+		'.gh-header-actions', // Legacy files and commits headers
+	];
+	for (const header of $$optional(headers)) {
+		addCopyButton(header);
+	}
+
+	observe(headers, addCopyButton, {signal});
 	delegate('.rgh-copy-pr-url', 'click', copyUrl, {signal});
 	signal.addEventListener('abort', () => {
 		for (const element of $$optional(':is(.rgh-copy-pr-url, .rgh-copy-pr-url-status)')) {

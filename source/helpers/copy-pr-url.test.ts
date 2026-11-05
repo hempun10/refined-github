@@ -48,6 +48,11 @@ test('does not duplicate the button and removes it on navigation', () => {
 	expect(elementExists('.rgh-copy-pr-url')).toBe(false);
 });
 
+test('removes its controls before React navigation', () => {
+	document.dispatchEvent(new Event('soft-nav:start'));
+	expect(elementExists('.rgh-copy-pr-url')).toBe(false);
+});
+
 test('leaves a visible native copy action alone', () => {
 	const header = $('[data-component="PH_Actions"]');
 	header.textContent = '';

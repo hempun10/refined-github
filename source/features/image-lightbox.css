@@ -1,11 +1,11 @@
 .rgh-image-lightbox {
-	max-width: calc(100vw - 32px);
-	max-height: calc(100vh - 32px);
+	max-width: calc(100dvw - 32px);
+	max-height: calc(100dvh - 32px);
 	padding: 16px;
-	border: 1px solid var(--borderColor-default);
+	border: 1px solid var(--borderColor-default, fuchsia);
 	border-radius: 6px;
-	background: var(--bgColor-default);
-	color: var(--fgColor-default);
+	background: var(--bgColor-default, fuchsia);
+	color: var(--fgColor-default, fuchsia);
 	overflow: auto;
 }
 
@@ -16,7 +16,7 @@
 .rgh-image-lightbox > img {
 	display: block;
 	max-width: 100%;
-	max-height: calc(100vh - 130px);
+	max-height: calc(100dvh - 130px);
 	margin: auto;
 	object-fit: contain;
 }
