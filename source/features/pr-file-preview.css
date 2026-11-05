@@ -1,0 +1,130 @@
+.rgh-file-preview {
+	box-sizing: border-box;
+	width: calc(100dvw - 32px);
+	height: calc(100dvh - 32px);
+	max-width: 1200px;
+	max-height: calc(100dvh - 32px);
+	padding: 16px;
+	border: 1px solid var(--borderColor-default, fuchsia);
+	border-radius: 6px;
+	background: var(--bgColor-default, fuchsia);
+	color: var(--fgColor-default, fuchsia);
+}
+
+.rgh-file-preview[open] {
+	display: flex;
+	flex-direction: column;
+}
+
+.rgh-file-preview::backdrop {
+	background: rgb(0 0 0 / 75%);
+}
+
+.rgh-file-preview-body {
+	flex: 1;
+	min-height: 0;
+}
+
+.rgh-file-preview-code {
+	display: flex;
+	height: 100%;
+	overflow: auto;
+	overscroll-behavior: contain;
+	border: 1px solid var(--borderColor-muted, cyan);
+	border-radius: 6px;
+
+	/* highlight.js tokens in GitHub's own syntax colors, mapped like highlight.js's github theme */
+	.hljs-comment,
+	.hljs-quote {
+		color: var(--color-prettylights-syntax-comment, fuchsia);
+	}
+
+	.hljs-keyword,
+	.hljs-doctag,
+	.hljs-template-tag,
+	.hljs-template-variable,
+	.hljs-type,
+	.hljs-variable.language_ {
+		color: var(--color-prettylights-syntax-keyword, fuchsia);
+	}
+
+	.hljs-title,
+	.hljs-title.class_,
+	.hljs-title.function_ {
+		color: var(--color-prettylights-syntax-entity, fuchsia);
+	}
+
+	.hljs-attr,
+	.hljs-attribute,
+	.hljs-literal,
+	.hljs-meta,
+	.hljs-number,
+	.hljs-operator,
+	.hljs-variable,
+	.hljs-selector-attr,
+	.hljs-selector-class,
+	.hljs-selector-id {
+		color: var(--color-prettylights-syntax-constant, fuchsia);
+	}
+
+	.hljs-regexp,
+	.hljs-string,
+	.hljs-meta .hljs-string {
+		color: var(--color-prettylights-syntax-string, fuchsia);
+	}
+
+	.hljs-built_in,
+	.hljs-symbol {
+		color: var(--color-prettylights-syntax-variable, fuchsia);
+	}
+
+	.hljs-name,
+	.hljs-selector-tag,
+	.hljs-selector-pseudo {
+		color: var(--color-prettylights-syntax-entity-tag, fuchsia);
+	}
+
+	.hljs-section {
+		color: var(--color-prettylights-syntax-markup-heading, fuchsia);
+		font-weight: bold;
+	}
+
+	.hljs-addition {
+		color: var(--color-prettylights-syntax-markup-inserted-text, fuchsia);
+	}
+
+	.hljs-deletion {
+		color: var(--color-prettylights-syntax-markup-deleted-text, fuchsia);
+	}
+
+	.hljs-emphasis {
+		font-style: italic;
+	}
+
+	.hljs-strong {
+		font-weight: bold;
+	}
+}
+
+.rgh-file-preview-code > pre {
+	margin: 0;
+	padding: 8px;
+	overflow: visible;
+	font-size: 12px;
+	line-height: 20px;
+	white-space: pre;
+}
+
+.rgh-file-preview-numbers {
+	position: sticky;
+	left: 0;
+	min-width: 48px;
+	background: var(--bgColor-muted, cyan);
+	color: var(--fgColor-muted, cyan);
+	text-align: right;
+	user-select: none;
+}
+
+html:has(.rgh-file-preview[open]) {
+	overflow: hidden;
+}

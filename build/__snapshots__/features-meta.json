@@ -700,6 +700,12 @@
 		"screenshot": "https://github.com/user-attachments/assets/eb0f5e6e-9870-4daf-8c00-f1f23f61ef0f"
 	},
 	{
+		"id": "pr-file-preview",
+		"description": "Adds an eye button to each file in a PR’s Files changed tab to preview the whole file, syntax-highlighted, in a modal without leaving the diff.",
+		"css": true,
+		"screenshot": "https://github.com/user-attachments/assets/6726af17-16dd-422d-ba0d-9610d7e214db"
+	},
+	{
 		"id": "pr-filters",
 		"description": "Adds a Draft PR dropdown filter in PR lists.",
 		"screenshot": "https://github-production-user-asset-6210df.s3.amazonaws.com/83146190/253068868-6afb4656-4ef5-4846-89c5-24dc6ee7f839.png"

@@ -117,6 +117,7 @@
 	"pr-branch-auto-delete",
 	"pr-bulk-actions",
 	"pr-commit-lines-changed",
+	"pr-file-preview",
 	"pr-filters",
 	"pr-first-commit-title",
 	"pr-from-branch",

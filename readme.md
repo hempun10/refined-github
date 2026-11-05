@@ -56,6 +56,7 @@ This fork keeps the upstream extension and adds independent options. In Helium a
 - [](# "image-lightbox") [Opens linked content images in a dismissible preview without leaving the page.](https://github.com/user-attachments/assets/530b05bc-55d1-4de6-9a03-72f83283dc59)
 
 - [](# "pdf-preview") [Opens linked PDF attachments in a modal and adds a Preview eye button beside PDF file links. Uses the browser's PDF viewer without an external service; asks once for optional access to GitHub's file hosts.](https://github.com/user-attachments/assets/807dccb6-78a7-4ffe-af32-9a553bd28d51)
+- [](# "pr-file-preview") [Adds an eye button to each file in a PR’s Files changed tab to preview the whole file, syntax-highlighted, in a modal without leaving the diff.](https://github.com/user-attachments/assets/6726af17-16dd-422d-ba0d-9610d7e214db)
 
 - [](# "copy-pr-url") [Copies the canonical pull request URL from the PR header, including on files and commits tabs.](https://github.com/user-attachments/assets/cb7b42dd-4ac5-425c-a283-818760294ded)
 
