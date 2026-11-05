@@ -701,9 +701,9 @@
 	},
 	{
 		"id": "pr-file-preview",
-		"description": "Adds an eye button to each file in a PR’s Files changed tab to preview the whole file, syntax-highlighted, in a modal without leaving the diff.",
+		"description": "Adds an eye button to each file in a PR’s Files changed tab to preview the whole file, syntax-highlighted, in a modal with a full diff and the original file.",
 		"css": true,
-		"screenshot": "https://github.com/user-attachments/assets/6726af17-16dd-422d-ba0d-9610d7e214db"
+		"screenshot": "https://github.com/user-attachments/assets/6cbd99c3-17aa-4f22-ac48-6084439be6c6"
 	},
 	{
 		"id": "pr-filters",

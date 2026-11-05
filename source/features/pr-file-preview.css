@@ -26,7 +26,6 @@
 }
 
 .rgh-file-preview-code {
-	display: flex;
 	height: 100%;
 	overflow: auto;
 	overscroll-behavior: contain;
@@ -106,23 +105,72 @@
 	}
 }
 
-.rgh-file-preview-code > pre {
-	margin: 0;
-	padding: 8px;
-	overflow: visible;
-	font-size: 12px;
-	line-height: 20px;
-	white-space: pre;
+.rgh-file-preview-tabs {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
-.rgh-file-preview-numbers {
-	position: sticky;
-	left: 0;
-	min-width: 48px;
-	background: var(--bgColor-muted, cyan);
-	color: var(--fgColor-muted, cyan);
-	text-align: right;
-	user-select: none;
+.rgh-file-preview-panel {
+	flex: 1;
+	min-height: 0;
+}
+
+.rgh-file-preview-lines {
+	width: max-content;
+	min-width: 100%;
+	font-family: var(--fontStack-monospace, monospace);
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.rgh-file-preview-line {
+	display: flex;
+
+	&[data-type='added'] {
+		background: var(--diffBlob-additionLine-bgColor, cyan);
+	}
+
+	&[data-type='removed'] {
+		background: var(--diffBlob-deletionLine-bgColor, fuchsia);
+	}
+
+	/* Line numbers come from attributes so they aren't copied with the code */
+	&::before,
+	> code::before {
+		display: inline-block;
+		width: 6ch;
+		padding-right: 8px;
+		flex-shrink: 0;
+		color: var(--fgColor-muted, cyan);
+		text-align: right;
+		user-select: none;
+	}
+
+	&::before {
+		content: attr(data-old);
+	}
+
+	/* Not flex: flex layout drops whitespace-only text, like indentation before a highlighted token */
+	> code {
+		display: block;
+		flex: 1;
+		padding-right: 16px;
+		font: inherit;
+		white-space: pre;
+	}
+
+	> code::before {
+		content: attr(data-new);
+		margin-right: 8px;
+	}
+}
+
+[data-columns='1'] .rgh-file-preview-line {
+	&[data-old='']::before,
+	> code[data-new='']::before {
+		display: none;
+	}
 }
 
 html:has(.rgh-file-preview[open]) {
