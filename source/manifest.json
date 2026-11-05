@@ -26,14 +26,19 @@
 		"scripting",
 		"contextMenus",
 		"activeTab",
-		"alarms"
+		"alarms",
+		"sidePanel"
 	],
 	"host_permissions": [
 		"https://github.com/*",
 		"https://api.github.com/*"
 	],
 	"action": {
-		"default_icon": "assets/icon.png"
+		"default_icon": "assets/icon.png",
+		"default_title": "Refined GitHub settings"
+	},
+	"side_panel": {
+		"default_path": "assets/options.html?sidebar"
 	},
 	"optional_host_permissions": [
 		"*://*/*"

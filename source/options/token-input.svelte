@@ -30,6 +30,7 @@
 	const initialMagicValue = ' '; // Initial non-empty value to avoid validation on first run
 	let tokenField: HTMLInputElement;
 	let tokenValue = $state(initialMagicValue);
+	let tokenVisible = $state(false);
 	const isEmpty = $derived(tokenValue.trim() === '');
 	const shown = $derived(!isEmpty || index <= revealed);
 	const active = $derived(revealed === index);
@@ -49,7 +50,7 @@
 
 		if (value === '') {
 			// Only expand if it's the first field
-			if (shown) {
+			if (shown && !new URLSearchParams(location.search).has('sidebar')) {
 				expandTokenSection();
 			}
 
@@ -135,14 +136,24 @@
 	<input
 		bind:this={tokenField}
 		bind:value={tokenValue}
-		type="text"
+		type={tokenVisible ? 'text' : 'password'}
 		name="personalToken[]"
+		aria-label={`Personal token ${index + 1}`}
 		spellcheck="false"
 		autocomplete="off"
 		autocapitalize="off"
 		size="20"
 		class="monospace-field token-field"
 	/>
+	<button
+		type="button"
+		aria-pressed={tokenVisible}
+		onclick={() => {
+			tokenVisible = !tokenVisible;
+		}}
+	>
+		{tokenVisible ? 'Hide token' : 'Show token'}
+	</button>
 	{#if compact}
 		{#await settled}
 			{@render compactScopesList()}
@@ -194,8 +205,8 @@
 		font-size: 0.8em;
 	}
 
-	.token-field:not(:focus) {
-		-webkit-text-security: circle;
+	.token-field {
+		max-width: 100%;
 	}
 
 	.compact-scopes {

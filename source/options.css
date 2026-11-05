@@ -11,6 +11,15 @@ body {
 	margin: 0;
 }
 
+html.rgh-sidebar header {
+	padding-block: 12px;
+	padding-inline: 16px;
+}
+
+html.rgh-sidebar::after {
+	display: none;
+}
+
 form {
 	max-width: var(--content-width);
 	margin: auto;

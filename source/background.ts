@@ -9,12 +9,11 @@ import {StorageItem} from 'webext-storage';
 import {globalCache} from 'webext-storage-cache'; // Also needed to regularly clear the cache
 
 import {hasAnyTokens} from './github-helpers/github-token.js';
-import {doesBrowserActionOpenOptions} from './helpers/feature-utils.js';
 import {styleHotfixes} from './helpers/hotfix.js';
 import isDevelopmentVersion from './helpers/is-development-version.js';
 import {fetchText} from './helpers/isomorphic-fetch.js';
 import safeCreateTab from './helpers/safe-create-tab.js';
-import optionsStorage from './options-storage.js';
+import onActionClick from './helpers/toolbar-action.js';
 import addIdentifyFeatureContextMenu from './options/identify-feature.js';
 import addReloadWithoutContentScripts from './options/reload-without.js';
 
@@ -67,24 +66,7 @@ handleMessages({
 	},
 });
 
-chrome.action.onClicked.addListener(async tab => {
-	if (doesBrowserActionOpenOptions) {
-		void chrome.runtime.openOptionsPage();
-		return;
-	}
-
-	const {actionUrl} = await optionsStorage.getAll();
-	if (!actionUrl) {
-		// Default to options page if unset
-		void chrome.runtime.openOptionsPage();
-		return;
-	}
-
-	await safeCreateTab({
-		openerTabId: tab.id,
-		url: actionUrl,
-	});
-});
+chrome.action.onClicked.addListener(onActionClick);
 
 async function showWelcomePage(): Promise<void> {
 	if (await welcomeShown.get()) {

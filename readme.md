@@ -51,7 +51,7 @@ GitHub Enterprise is also supported: [How to enable it](https://fregante.github.
 
 ## Personal fork
 
-This fork keeps the upstream extension and adds independent options. See [installation and upstream updates](personal-fork.md).
+This fork keeps the upstream extension and adds independent options. In Helium and other browsers with the Chromium side-panel API, the toolbar icon opens a settings sidebar with feature toggles and token management. See [installation and upstream updates](personal-fork.md).
 
 - [](# "image-lightbox") [Opens linked content images in a dismissible preview without leaving the page.](https://github.com/user-attachments/assets/530b05bc-55d1-4de6-9a03-72f83283dc59)
 

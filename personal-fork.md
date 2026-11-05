@@ -1,6 +1,6 @@
 # Personal Refined GitHub fork
 
-This fork adds four independent options to upstream Refined GitHub. It keeps the upstream build, feature manager, settings page, and permissions. These additions do not read a personal access token or call the GitHub API.
+This fork adds four independent page features and a settings sidebar to upstream Refined GitHub. It keeps the upstream build, feature manager, and settings storage. The four page features do not read a personal access token or call the GitHub API. The settings sidebar uses the additional `sidePanel` permission and reuses upstream token management.
 
 ## Install an unpacked build
 
@@ -27,7 +27,9 @@ The build checks TypeScript and Svelte and creates the extension bundle. The ins
 
 ## Options and behavior
 
-Open the extension's Options page, expand "Features", and search for the feature ID. The first three options default to enabled. `dashboard-infinite-scroll` defaults to disabled. Reload GitHub after changing an option.
+In Helium and other browsers with the Chromium side-panel API, click the Refined GitHub toolbar icon to open settings beside your page instead of opening GitHub. The browser controls which side hosts the panel. Features opens first; search for a feature ID and tick its checkbox. Changes save automatically. Reload GitHub to apply them. The first three options default to enabled. `dashboard-infinite-scroll` defaults to disabled.
+
+The sidebar also has Personal token, Toggle all features, and Open full settings controls. Token fields stay masked, including while focused, unless you explicitly choose Show token. The existing token storage and GitHub validation stay unchanged. Disabling all configurable features does not disable CSS-only refinements; use the browser's Extensions page to turn off the whole extension. Browsers without side-panel support keep the upstream toolbar behavior and full Options page. If opening a supported sidebar fails, the toolbar opens full settings instead.
 
 | Option | Behavior | Limits |
 | --- | --- | --- |
@@ -79,6 +81,8 @@ Each feature has its own `source/features/<id>.tsx` registration. The image prev
 
 `source/refined-github.ts` imports the four features. `source/options-storage.ts` sets the infinite-scroll default. `source/features/open-all-conversations.tsx` recognizes the custom PR selection. `readme.md` and the generated JSON files under `build/__snapshots__` provide the feature descriptions and options metadata. Focused tests are under `source/helpers`.
 
+`source/helpers/toolbar-action.ts` opens the native sidebar and handles its full-settings fallback. `source/manifest.json` registers the existing options page as the panel and adds the `sidePanel` permission. Sidebar layout and controls reuse `source/options/options.svelte` and `source/options.css`. `source/options/token-input.svelte` masks tokens until the user chooses Show token.
+
 ## Verification
 
 The fork was tested on real github.com in Helium with an unpacked build and an isolated logged-in profile. The screenshots linked in the README come from those runs. No browser profile or verification screenshot is committed to this repository.
@@ -87,6 +91,8 @@ The final checks passed: `npm run format`, `npm run format:check`, `npm run lint
 
 The Helium runs exercised image opening and dismissal, keyboard and modified-click behavior, clipboard contents on PR conversation/files pages, navigation without duplicate controls, PR selection and clearing, two actual background tabs, and loading real issue/PR dashboard pages. An offline issue/PR request failed with a Retry action and loaded successfully after the connection returned. A separate run on `https://github.com/dashboard` verified automatic feed growth through two batches, one automatic request per native More control, manual retry after an offline failure, and no automatic loading when the option was disabled. The dashboard option was disabled again after testing.
 
-Unit tests cover image eligibility and cleanup, canonical clipboard URLs and failures, copy-action deduplication, custom/native checkbox behavior, dynamic row selection, pagination URL validation, text-only extraction, request serialization, deduplication, retry, end-of-results handling, and navigation cancellation. A regression test uses the real selector observer to check retained DOM nodes across navigation. These tests supplement browser checks; they do not replace them.
+A separate sidebar run exercised the built toolbar handler from a trusted click and opened the native right panel beside the real GitHub dashboard. The 360-pixel-wide panel had no horizontal overflow in light or dark mode. A feature toggle persisted after reloading the panel; enabling infinite scroll there grew the real feed from 7 to 30 cards after scrolling. Token masking, explicit Show/Hide, bulk feature toggles, settings restoration, and the full-settings link passed. macOS accessibility access was unavailable, so the physical browser-toolbar icon click was not automated.
+
+Unit tests cover toolbar routing and the full-settings fallback, image eligibility and cleanup, canonical clipboard URLs and failures, copy-action deduplication, custom/native checkbox behavior, dynamic row selection, pagination URL validation, text-only extraction, request serialization, deduplication, retry, end-of-results handling, and navigation cancellation. A regression test uses the real selector observer to check retained DOM nodes across navigation. These tests supplement browser checks; they do not replace them.
 
 Chrome, Edge, Firefox, Safari, GitHub Enterprise, and every GitHub theme or feature-flagged layout have not been independently verified. GitHub DOM changes can require selector updates. The upstream extension has its own token-using features; the four additions do not change them or their permissions.

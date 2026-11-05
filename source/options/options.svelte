@@ -35,6 +35,7 @@
 	import TokenInputs from './token-inputs.svelte';
 	import VersionInfo from './version-info.svelte';
 
+	const sidebar = new URLSearchParams(location.search).has('sidebar');
 	const {domain = 'default'} = $props();
 	const enterprise = $derived(domain !== 'default');
 	const optionsStorageKey = $derived.by(() =>
@@ -43,16 +44,24 @@
 	const host = $derived.by(() => (domain === 'default' ? 'github.com' : domain));
 </script>
 
-<Header title="Refined GitHub" withVersion>
-	<p>
-		Visit the <a href="https://github.com/refined-github/refined-github/wiki"
-		>wiki</a> to learn about debugging and GitHub Enterprise. <a
-			href="https://github.com/refined-github/refined-github/releases#rgh-subscribe"
-		>Subscribe to the releases</a> to follow updates. You can
-		<RateLink>rate Refined GitHub</RateLink> to help others find it. Follow or
-		sponsor <a href="https://github.com/sponsors/fregante">@fregante</a> if
-		Refined GitHub helps you work more efficiently. 🍻
-	</p>
+<Header title={sidebar ? 'Settings' : 'Refined GitHub'} withVersion>
+	{#if sidebar}
+		<p>Changes save automatically. Reload your GitHub tab after changing
+			features.</p>
+		<button type="button" onclick={() => chrome.runtime.openOptionsPage()}>
+			Open full settings
+		</button>
+	{:else}
+		<p>
+			Visit the <a href="https://github.com/refined-github/refined-github/wiki"
+			>wiki</a> to learn about debugging and GitHub Enterprise. <a
+				href="https://github.com/refined-github/refined-github/releases#rgh-subscribe"
+			>Subscribe to the releases</a> to follow updates. You can
+			<RateLink>rate Refined GitHub</RateLink> to help others find it. Follow or
+			sponsor <a href="https://github.com/sponsors/fregante">@fregante</a> if
+			Refined GitHub helps you work more efficiently. 🍻
+		</p>
+	{/if}
 </Header>
 
 <form id="options-form" class="detail-view-container">
@@ -84,7 +93,7 @@
 	</HandleExpand>
 
 	<HandleExpand>
-		<details id="toggle-all" hidden>
+		<details id="toggle-all" hidden={!sidebar}>
 			<summary><DomChef as={FlagIcon} /> Toggle all features</summary>
 			<p>
 				If you're trying to identify a feature, please use "Identify feature"
@@ -108,7 +117,7 @@
 	</HandleExpand>
 
 	<HandleExpand>
-		<details id="features">
+		<details id="features" open={sidebar}>
 			<!-- No space, there's a colon after "Features" -->
 			<summary><DomChef as={ZapIcon} />Features<FeatureCount /></summary>
 			<FeatureList />
@@ -206,7 +215,7 @@
 			</p>
 
 			<p>
-				<button id="toggle-all-features" type="button">
+				<button id="toggle-all-features" type="button" hidden={sidebar}>
 					Toggle all features…
 				</button>
 			</p>

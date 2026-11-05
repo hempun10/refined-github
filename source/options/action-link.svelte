@@ -5,7 +5,9 @@
 	import {doesBrowserActionOpenOptions} from '../helpers/feature-utils.js';
 
 	const {enterprise = false}: {enterprise: boolean} = $props();
-	const hidden = $derived(enterprise || doesBrowserActionOpenOptions);
+	const hidden = $derived(
+		enterprise || doesBrowserActionOpenOptions || Boolean(chrome.sidePanel),
+	);
 </script>
 {#if !hidden}
 	<details id="action">

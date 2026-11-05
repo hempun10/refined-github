@@ -15,6 +15,8 @@ import clearCacheHandler from './helpers/clear-cache-handler.js';
 import {perDomainOptions} from './options-storage.js';
 import initToggleAllButtons from './options/toggle-all.js';
 
+document.documentElement.classList.toggle('rgh-sidebar', new URLSearchParams(location.search).has('sidebar'));
+
 function sortFeatures(): void {
 	const container = $('.js-features');
 	const features = $$('.feature-item').toSorted((a, b) => a.dataset.text!.localeCompare(b.dataset.text!));
