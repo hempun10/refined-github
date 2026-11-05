@@ -36,6 +36,7 @@
 	"copy-pr-url",
 	"create-release-shortcut",
 	"cross-deleted-pr-branches",
+	"dashboard-infinite-scroll",
 	"deep-reblame",
 	"default-branch-button",
 	"delete-branch",

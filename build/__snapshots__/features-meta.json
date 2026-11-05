@@ -218,6 +218,12 @@
 		"screenshot": "https://github-production-user-asset-6210df.s3.amazonaws.com/140871606/256963526-646ac7d0-3e7f-40c6-ba39-014b49bc0063.png"
 	},
 	{
+		"id": "dashboard-infinite-scroll",
+		"description": "Loads more issue and PR dashboard results near the bottom of the list. Disabled by default.",
+		"css": true,
+		"screenshot": "https://github.com/user-attachments/assets/dd652c7e-2659-40a4-ae2b-0c8e281d2c1e"
+	},
+	{
 		"id": "deep-reblame",
 		"description": "When exploring blames, <code>Alt</code>-clicking the “Reblame” buttons will extract the associated PR’s commits first, instead of treating the commit as a single change.",
 		"css": true,
