@@ -391,6 +391,12 @@
 		"screenshot": "https://github-production-user-asset-6210df.s3.amazonaws.com/83146190/260874191-69d386a0-7c1f-42ae-84fd-4f67f90982da.png"
 	},
 	{
+		"id": "image-lightbox",
+		"description": "Opens linked content images in a dismissible preview without leaving the page.",
+		"css": true,
+		"screenshot": "https://github.com/user-attachments/assets/530b05bc-55d1-4de6-9a03-72f83283dc59"
+	},
+	{
 		"id": "improve-shortcut-help",
 		"description": "Shows all of Refined GitHub’s new keyboard shortcuts in the help modal (<kbd>?</kbd> hotkey).",
 		"css": true,

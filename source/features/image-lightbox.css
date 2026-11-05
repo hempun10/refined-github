@@ -1,0 +1,26 @@
+.rgh-image-lightbox {
+	max-width: calc(100vw - 32px);
+	max-height: calc(100vh - 32px);
+	padding: 16px;
+	border: 1px solid var(--borderColor-default);
+	border-radius: 6px;
+	background: var(--bgColor-default);
+	color: var(--fgColor-default);
+	overflow: auto;
+}
+
+.rgh-image-lightbox::backdrop {
+	background: rgb(0 0 0 / 75%);
+}
+
+.rgh-image-lightbox > img {
+	display: block;
+	max-width: 100%;
+	max-height: calc(100vh - 130px);
+	margin: auto;
+	object-fit: contain;
+}
+
+html:has(.rgh-image-lightbox[open]) {
+	overflow: hidden;
+}
