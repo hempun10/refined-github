@@ -219,7 +219,7 @@
 	},
 	{
 		"id": "dashboard-infinite-scroll",
-		"description": "Loads more issue and PR dashboard results near the bottom of the list. Disabled by default.",
+		"description": "Loads more home activity feed items and issue/PR dashboard results near the bottom of the page. Disabled by default.",
 		"css": true,
 		"screenshot": "https://github.com/user-attachments/assets/dd652c7e-2659-40a4-ae2b-0c8e281d2c1e"
 	},

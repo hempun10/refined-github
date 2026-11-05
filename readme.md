@@ -59,7 +59,7 @@ This fork keeps the upstream extension and adds independent options. See [instal
 
 - [](# "pr-bulk-actions") [Adds PR selection with a floating toolbar to copy URLs, open selected PRs, and clear the selection.](https://github.com/user-attachments/assets/6d289985-1483-4a91-bed1-61a4a46b69da)
 
-- [](# "dashboard-infinite-scroll") [Loads more issue and PR dashboard results near the bottom of the list. Disabled by default.](https://github.com/user-attachments/assets/dd652c7e-2659-40a4-ae2b-0c8e281d2c1e)
+- [](# "dashboard-infinite-scroll") [Loads more home activity feed items and issue/PR dashboard results near the bottom of the page. Disabled by default.](https://github.com/user-attachments/assets/dd652c7e-2659-40a4-ae2b-0c8e281d2c1e)
 
 ## Highlights 🔥
 

@@ -3,7 +3,7 @@ import './dashboard-infinite-scroll.css';
 import {mergeSignals, signalFromEvent} from 'abort-utils';
 import React from 'dom-chef';
 import * as pageDetect from 'github-url-detection';
-import {$optional, closestElementOptional, elementExists} from 'select-dom';
+import {$$optional, $optional, closestElementOptional, elementExists} from 'select-dom';
 
 import features from '../feature-manager.js';
 import {getDashboardRows, getNextDashboardPage} from '../helpers/dashboard-pagination.js';
@@ -143,16 +143,56 @@ function init(signal: AbortSignal): void {
 	observe(selector, start.bind(undefined, signal), {signal});
 }
 
+function homeFeedInit(signal: AbortSignal): void {
+	signal = mergeSignals(signal, signalFromEvent(document, 'soft-nav:start', {signal}));
+	const requested = new WeakSet<HTMLButtonElement>();
+	const observer = new IntersectionObserver(entries => {
+		for (const entry of entries) {
+			if (!entry.isIntersecting || signal.aborted || !(entry.target instanceof HTMLButtonElement)) {
+				continue;
+			}
+
+			const button = entry.target;
+			if (button.disabled || !button.isConnected || requested.has(button)) {
+				continue;
+			}
+
+			requested.add(button);
+			observer.unobserve(button);
+			// GitHub replaces this control after loading; keep its native loading and retry behavior.
+			button.click();
+		}
+	}, {rootMargin: '400px'});
+	const selector = '#conduit-feed-frame .ajax-pagination-form button.ajax-pagination-btn';
+	for (const button of $$optional(selector)) {
+		observer.observe(button);
+	}
+
+	observe(selector, button => {
+		observer.observe(button);
+	}, {signal});
+	signal.addEventListener('abort', () => {
+		observer.disconnect();
+	}, {once: true});
+}
+
 void features.add(import.meta.url, {
 	include: [
 		pageDetect.isGlobalIssueOrPRList,
 	],
 	init,
+}, {
+	include: [
+		pageDetect.isHome,
+	],
+	init: homeFeedInit,
 });
 
 /*
 
 Test URLs:
+- https://github.com/dashboard (home activity feed)
+- https://github.com/ (home activity feed alias)
 - https://github.com/issues/search?q=repo%3Arefined-github%2Frefined-github+is%3Aissue
 - https://github.com/pulls/search?q=repo%3Arefined-github%2Frefined-github
 - https://github.com/refined-github/refined-github/pulls (no automatic loading)
