@@ -30,7 +30,9 @@ npm run build
 npx dot-json distribution/manifest.json version '"'$TAG'"' --json
 
 # Due to https://github.com/refined-github/refined-github/issues/8405
-npx dot-json distribution/manifest.json optional_host_permissions --delete
+# Keep the explicit PDF hosts, but not the wildcard Enterprise grant.
+npx dot-json distribution/manifest.json optional_host_permissions \
+	'["https://objects.githubusercontent.com/*","https://raw.githubusercontent.com/*"]' --json
 
 sed -i '' '/MARKETING_VERSION/d' $CONFIG_FILE
 sed -i '' '/CURRENT_PROJECT_VERSION/d' $CONFIG_FILE

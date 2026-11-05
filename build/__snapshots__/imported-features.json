@@ -111,6 +111,7 @@
 	"open-issue-to-latest-comment",
 	"parse-backticks",
 	"patch-diff-links",
+	"pdf-preview",
 	"pinned-issues-update-time",
 	"pr-base-commit",
 	"pr-branch-auto-delete",

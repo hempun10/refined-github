@@ -55,6 +55,8 @@ This fork keeps the upstream extension and adds independent options. In Helium a
 
 - [](# "image-lightbox") [Opens linked content images in a dismissible preview without leaving the page.](https://github.com/user-attachments/assets/530b05bc-55d1-4de6-9a03-72f83283dc59)
 
+- [](# "pdf-preview") [Opens linked PDF attachments in a modal and adds a Preview eye button beside PDF file links. Uses the browser's PDF viewer without an external service; asks once for optional access to GitHub's file hosts.](https://github.com/user-attachments/assets/807dccb6-78a7-4ffe-af32-9a553bd28d51)
+
 - [](# "copy-pr-url") [Copies the canonical pull request URL from the PR header, including on files and commits tabs.](https://github.com/user-attachments/assets/cb7b42dd-4ac5-425c-a283-818760294ded)
 
 - [](# "pr-bulk-actions") [Adds PR selection with a floating toolbar to copy URLs, open selected PRs, and clear the selection.](https://github.com/user-attachments/assets/6d289985-1483-4a91-bed1-61a4a46b69da)
@@ -266,7 +268,7 @@ https://github.com/refined-github/refined-github/wiki/Contributing#metadata-guid
 - [](# "sync-pr-commit-title") 🔥 [Uses the PR’s title as the default squash commit title](https://github.com/refined-github/refined-github/issues/276) and [updates the PR’s title to match the commit title, if changed.](https://github-production-user-asset-6210df.s3.amazonaws.com/140871606/257011579-25332762-b25f-407b-b6d2-bbfc13de2be7.png)
 - [](# "update-pr-from-base-branch") [Adds an "Update branch | Rebase" button to every PR.](https://github.com/user-attachments/assets/7bd2745b-c57c-4c26-bbb8-b05e9cf089db) GitHub has the same feature, but it must be manually configured for each repo.
 - [](# "one-click-review-submission") [Simplifies the PR review form: Approve or reject reviews faster with one-click review-type buttons.](https://user-images.githubusercontent.com/1402241/236627732-df341ff7-cd98-4cd0-a579-722d1fffa5cf.png)
-- [](# "pull-request-hotkeys") [Adds keyboard shortcuts to cycle through PR tabs: <kbd>g</kbd> <kbd>←</kbd> and <kbd>g</kbd> <kbd>→</kbd>, or <kbd>g</kbd> <kbd>1</kbd>, <kbd>g</kbd> <kbd>2</kbd>, <kbd>g</kbd> <kbd>3</kbd>, and <kbd>g</kbd> <kbd>4</kbd>](https://user-images.githubusercontent.com/16872793/94634958-7e7b5680-029f-11eb-82ea-1f96cd11e4cd.png).
+- [](# "pull-request-hotkeys") [Adds keyboard shortcuts to cycle through PR tabs: <kbd>g</kbd> <kbd>←</kbd> and <kbd>g</kbd> <kbd>→</kbd>, or <kbd>g</kbd> <kbd>1</kbd>, <kbd>g</kbd> <kbd>2</kbd>, <kbd>g</kbd> <kbd>3</kbd>, and <kbd>g</kbd> <kbd>4</kbd>](https://user-images.githubusercontent.com/16872793/94634958-7e7b5680-029f-11eb-82ea-1f96cd11e4cd.png). Also adds <kbd>g</kbd> <kbd>f</kbd> for Files changed and <kbd>g</kbd> <kbd>l</kbd> to scroll to the merge controls on the Conversation tab without activating them.
 - [](# "pr-branch-auto-delete") [Automatically deletes the branch right after merging a PR, if possible.](https://user-images.githubusercontent.com/1402241/177067141-eabc7494-38a2-45b5-aef9-ac33cc0da370.png) Common branch names known to be long-lived are excluded (`develop`, `release/*`, etc)
 - [](# "one-click-pr-or-gist") [Lets you create draft PRs and public gists in one click.](https://user-images.githubusercontent.com/34235681/152473201-868ad7c1-e06f-4826-b808-d90bca7f08b3.png)
 - [](# "clear-pr-merge-commit-message") [Clears the PR merge commit message of clutter, leaving only deduplicated co-authors.](https://user-images.githubusercontent.com/1402241/79257078-62b6fc00-7e89-11ea-8798-c06f33baa94b.png)

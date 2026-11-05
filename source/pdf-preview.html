@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="light dark" name="color-scheme">
+<title>PDF preview</title>
+<style>
+	html,
+	body,
+	iframe {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border: 0;
+	}
+	body {
+		font: 14px system-ui, sans-serif;
+	}
+	#access,
+	[role='status'] {
+		max-width: 32rem;
+		margin: 1.5rem;
+	}
+	button {
+		padding: 0.5rem 0.75rem;
+		font: inherit;
+	}
+</style>
+<section id="access" hidden>
+	<h2>Allow PDF previews</h2>
+	<p>GitHub serves PDFs from <code>objects.githubusercontent.com</code> and
+		<code>raw.githubusercontent.com</code>. Allow optional access to these file
+		hosts to load PDFs here. No personal token is used.</p>
+	<button id="allow" type="button">Allow PDF file access</button>
+</section>
+<p role="status">Loading PDF…</p>
+<script type="module" src="pdf-preview.js"></script>

@@ -23,6 +23,7 @@ const noise = new Set([
 
 const js = [
 	'./source/options.tsx',
+	'./source/pdf-preview.ts',
 	'./source/welcome.svelte',
 	'./source/graphql.svelte',
 	'./source/refined-github.ts',

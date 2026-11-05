@@ -661,6 +661,12 @@
 		"screenshot": "https://github-production-user-asset-6210df.s3.amazonaws.com/140871606/257011950-51712338-ffba-4b71-ad8f-9a0f142afb85.png"
 	},
 	{
+		"id": "pdf-preview",
+		"description": "Opens linked PDF attachments in a modal and adds a Preview eye button beside PDF file links. Uses the browser's PDF viewer without an external service; asks once for optional access to GitHub's file hosts.",
+		"css": true,
+		"screenshot": "https://github.com/user-attachments/assets/807dccb6-78a7-4ffe-af32-9a553bd28d51"
+	},
+	{
 		"id": "pinned-issues-update-time",
 		"description": "Replaces the \"opened\" time with the \"updated\" time on pinned issues.",
 		"screenshot": "https://github-production-user-asset-6210df.s3.amazonaws.com/1402241/240707405-e416be14-5ab5-4869-b33c-f43aab7afcb6.png"
@@ -756,7 +762,7 @@
 	},
 	{
 		"id": "pull-request-hotkeys",
-		"description": "Adds keyboard shortcuts to cycle through PR tabs: <kbd>g</kbd> <kbd>←</kbd> and <kbd>g</kbd> <kbd>→</kbd>, or <kbd>g</kbd> <kbd>1</kbd>, <kbd>g</kbd> <kbd>2</kbd>, <kbd>g</kbd> <kbd>3</kbd>, and <kbd>g</kbd> <kbd>4</kbd>.",
+		"description": "Adds keyboard shortcuts to cycle through PR tabs: <kbd>g</kbd> <kbd>←</kbd> and <kbd>g</kbd> <kbd>→</kbd>, or <kbd>g</kbd> <kbd>1</kbd>, <kbd>g</kbd> <kbd>2</kbd>, <kbd>g</kbd> <kbd>3</kbd>, and <kbd>g</kbd> <kbd>4</kbd>. Also adds <kbd>g</kbd> <kbd>f</kbd> for Files changed and <kbd>g</kbd> <kbd>l</kbd> to scroll to the merge controls on the Conversation tab without activating them.",
 		"screenshot": "https://user-images.githubusercontent.com/16872793/94634958-7e7b5680-029f-11eb-82ea-1f96cd11e4cd.png"
 	},
 	{

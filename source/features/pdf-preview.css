@@ -1,0 +1,32 @@
+.rgh-pdf-preview {
+	box-sizing: border-box;
+	width: calc(100dvw - 32px);
+	height: calc(100dvh - 32px);
+	max-width: 1400px;
+	max-height: calc(100dvh - 32px);
+	padding: 16px;
+	border: 1px solid var(--borderColor-default, fuchsia);
+	border-radius: 6px;
+	background: var(--bgColor-default, fuchsia);
+	color: var(--fgColor-default, fuchsia);
+}
+
+.rgh-pdf-preview::backdrop {
+	background: rgb(0 0 0 / 75%);
+}
+
+.rgh-pdf-preview > iframe {
+	display: block;
+	width: 100%;
+	height: calc(100% - 44px);
+	border: 0;
+}
+
+.rgh-pdf-preview-button {
+	margin-inline-start: 4px;
+	flex-shrink: 0;
+}
+
+html:has(.rgh-pdf-preview[open]) {
+	overflow: hidden;
+}
